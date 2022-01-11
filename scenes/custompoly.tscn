@@ -1,0 +1,12 @@
+[gd_scene format=2]
+
+[node name="custompoly" type="Node2D"]
+
+[node name="RigidBody2D" type="RigidBody2D" parent="."]
+position = Vector2( 500, 300 )
+
+[node name="disabledcustom" type="CollisionPolygon2D" parent="RigidBody2D"]
+position = Vector2( 1.91742, 0 )
+scale = Vector2( 1.00912, 1 )
+polygon = PoolVector2Array( 126.059, 34.7845, 4.29926, 81.9782, -132.563, 1.74887, -17.4099, -82.2559, 13.738, -37.8938, 62.8195, -60.5468, 76.0337, 0.804993 )
+disabled = true
