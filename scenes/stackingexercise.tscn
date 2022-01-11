@@ -1,0 +1,57 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://scripts/KinematicBody2D.gd" type="Script" id=1]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 499.934, 40.2878 )
+
+[sub_resource type="CircleShape2D" id=2]
+radius = 34.1421
+
+[sub_resource type="CapsuleShape2D" id=3]
+radius = 23.6843
+
+[node name="stackingexercise" type="Node2D"]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2( 512.788, 549.326 )
+shape = SubResource( 1 )
+
+[node name="RigidBody2D4" type="RigidBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D4"]
+position = Vector2( 498.929, 425.853 )
+shape = SubResource( 2 )
+
+[node name="RigidBody2D3" type="RigidBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D3"]
+position = Vector2( 514.048, 316.24 )
+shape = SubResource( 2 )
+
+[node name="RigidBody2D2" type="RigidBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D2"]
+position = Vector2( 488.85, 219.226 )
+shape = SubResource( 2 )
+
+[node name="RigidBody2D" type="RigidBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+position = Vector2( 501.449, 36.5377 )
+shape = SubResource( 2 )
+
+[node name="RigidBody2D5" type="RigidBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D5"]
+position = Vector2( 514.048, 128.512 )
+shape = SubResource( 2 )
+
+[node name="KinematicBody2D" type="KinematicBody2D" parent="."]
+script = ExtResource( 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="KinematicBody2D"]
+position = Vector2( 245.685, 466.171 )
+shape = SubResource( 3 )

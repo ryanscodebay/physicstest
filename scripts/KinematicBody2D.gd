@@ -1,21 +1,23 @@
 extends KinematicBody2D
 
-export (float) var speed = 100.0
-var velocity = Vector2()
+# The speed in pixels per second
+export (float) var speed = 250.0
 
-func get_input():
-	# Detect up/down/left/right keystate and only move when pressed.
-	velocity = Vector2()
-	if Input.is_action_pressed('ui_right'):
-		velocity.x += 1
-	if Input.is_action_pressed('ui_left'):
-		velocity.x -= 1
-	if Input.is_action_pressed('ui_down'):
-		velocity.y += 1
-	if Input.is_action_pressed('ui_up'):
-		velocity.y -= 1
-	velocity = velocity.normalized() * speed
-
+# Run this function in a synchrony with physics processing
 func _physics_process(delta):
-	get_input()
-	move_and_collide(velocity * delta)
+	# Calculate the direction vector based on input
+	var direction = Vector2()
+	if Input.is_action_pressed("ui_left"):
+		direction.x = -1
+	elif Input.is_action_pressed("ui_right"):
+		direction.x = 1
+	if Input.is_action_pressed("ui_up"):
+		direction.y = -1
+	elif Input.is_action_pressed("ui_down"):
+		direction.y = 1
+
+	# Normalize the movement vector and modulate by the speed
+	var movement = direction.normalized() * speed
+
+	# Move the body based on the calculated speed and direction
+	move_and_slide(movement)
