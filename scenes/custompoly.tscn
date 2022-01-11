@@ -1,8 +1,13 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://scripts/RigidBody2D.gd" type="Script" id=1]
 [ext_resource path="res://icon.png" type="Texture" id=2]
 [ext_resource path="res://scripts/KinematicBody2D.gd" type="Script" id=3]
+[ext_resource path="res://scripts/dangerzone.gd" type="Script" id=4]
+[ext_resource path="res://scripts/RayCast2D.gd" type="Script" id=5]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 158.496, 90.6847 )
 
 [node name="custompoly" type="Node2D"]
 
@@ -28,3 +33,18 @@ texture = ExtResource( 2 )
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="moveablesprite"]
 position = Vector2( 352.778, 146.151 )
 polygon = PoolVector2Array( 32, -32, 32, 32, -32, 32, -32, -32, 31, -32 )
+
+[node name="dangerzone" type="Area2D" parent="."]
+position = Vector2( 714.375, 110.873 )
+script = ExtResource( 4 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="dangerzone"]
+position = Vector2( 10.0795, 20.1587 )
+shape = SubResource( 1 )
+
+[node name="RayCast2D" type="RayCast2D" parent="dangerzone"]
+position = Vector2( 11.3392, 20.1587 )
+rotation = 0.888373
+scale = Vector2( 2, 3 )
+enabled = true
+script = ExtResource( 5 )
